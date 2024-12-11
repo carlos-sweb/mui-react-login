@@ -4,7 +4,6 @@ import { useState } from 'react'
 import './App.css'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
