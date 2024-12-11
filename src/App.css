@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body{
+  background-color:rgb(249 250 251);
+}
+#root{
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: auto;
+  font-style: normal;
+  padding-top:70px;  
+}
