@@ -3,36 +3,34 @@ import { useState } from 'react'
 
 import './App.css'
 import Box from '@mui/material/Box'
-import TextField from '@mui/material/TextField'
-import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
+import TextField        from '@mui/material/TextField'
+import Button           from '@mui/material/Button';
+import Card             from '@mui/material/Card';
+import CardContent      from '@mui/material/CardContent';
 import CircularProgress from '@mui/material/CircularProgress';
 
 import axios from "axios"
 
 function App() {
-  const url_auth = "http://preciointeligente.ddns.net:8000/api-token-auth/";
+  const url_auth = "https://csweb.sistematizate.cl/api_v1/login";
   const [username,setUsername] = useState("")
   const [password, setPassword] = useState("")  
   const [sending,setSending] = useState(false);  
-  const valid = ()=>{
-    return username != "" && password != "";
-  }  
-
-  const login = function(){
-      console.log(username);
-      setSending(true);
-      
+  const valid = ()=>{ return username != "" && password != ""; }  
+  const login = () => {      
+      setSending(true);      
       axios.post( url_auth , {
-        username: username , 
-        password: password
-      } ).then(( response )=>{
-          console.log( response );
+        mail: username , 
+        pwd: password
+      } ).then(( res )=>{
+        if( res.data.loggin ){
+          location.href= "https://csweb.sistematizate.cl/dashboard/";
+        }else{
+          alert("Error");
+          setSending(false);
+        }
       });
-
   }
-
   return (    
     <> 
       <Card variant="outlined" className="w-80 p-2">
@@ -49,5 +47,4 @@ function App() {
     </>
   )
 }
-
 export default App
