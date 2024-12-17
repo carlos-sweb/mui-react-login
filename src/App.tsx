@@ -12,7 +12,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import axios from "axios"
 
 function App() {
-  const url_auth = "https://csweb.sistematizate.cl/api_v1/login";
+  const url_auth = String(location.href)+"/api_v1/login";
   const [username,setUsername] = useState("")
   const [password, setPassword] = useState("")  
   const [sending,setSending] = useState(false);  
