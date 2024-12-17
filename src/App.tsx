@@ -1,6 +1,4 @@
 import { useState } from 'react'
-
-
 import './App.css'
 import Box from '@mui/material/Box'
 import TextField        from '@mui/material/TextField'
@@ -8,11 +6,9 @@ import Button           from '@mui/material/Button';
 import Card             from '@mui/material/Card';
 import CardContent      from '@mui/material/CardContent';
 import CircularProgress from '@mui/material/CircularProgress';
-
 import axios from "axios"
-
 function App() {
-  const url_auth = String(location.href)+"/api_v1/login";
+  const url_auth = String(location.href)+"login";
   const [username,setUsername] = useState("")
   const [password, setPassword] = useState("")  
   const [sending,setSending] = useState(false);  
@@ -24,7 +20,7 @@ function App() {
         pwd: password
       } ).then(( res )=>{
         if( res.data.loggin ){
-          location.href= "https://csweb.sistematizate.cl/dashboard/";
+          location.href= String(location.href)+"dashboard";
         }else{
           alert("Error");
           setSending(false);
